@@ -1,7 +1,7 @@
 class Trip < ApplicationRecord
-  has_many :travels
-  has_many :activities
-  has_many :restaurants
-  has_many :hotels
+  has_many :travels, dependent: :destroy
+  has_many :activities, dependent: :destroy
+  has_many :restaurants, dependent: :destroy
+  has_many :hotels, dependent: :destroy
   belongs_to :user
 end
