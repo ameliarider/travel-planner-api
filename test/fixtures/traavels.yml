@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  type: 
+  date: 2025-08-05
+  confirmation_number: MyString
+  link: MyString
+  est_cost: 1.5
+  trip_id: 1
+
+two:
+  name: MyString
+  type: 
+  date: 2025-08-05
+  confirmation_number: MyString
+  link: MyString
+  est_cost: 1.5
+  trip_id: 1
