@@ -40,9 +40,9 @@ Rails.application.routes.draw do
   delete "/restaurants/:id" => "restaurants#destroy"
 
   # Travels
-  get "/travels" => "travels#index"
-  get "/travels/:id" => "travels#show"
-  post "/travels" => "travels#create"
-  patch "/travels/:id" => "travels#update"
-  delete "/travels/:id" => "travels#destroy"
+  get "/transportations" => "transportations#index"
+  get "/transportations/:id" => "transportations#show"
+  post "/transportations" => "transportations#create"
+  patch "/transportations/:id" => "transportations#update"
+  delete "/transportations/:id" => "transportations#destroy"
 end
