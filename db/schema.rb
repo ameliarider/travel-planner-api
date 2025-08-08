@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_08_06_013337) do
+ActiveRecord::Schema[8.0].define(version: 2025_08_08_001050) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -35,6 +35,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_06_013337) do
     t.float "est_cost"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "coordinates"
   end
 
   create_table "locations", force: :cascade do |t|
@@ -44,6 +45,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_06_013337) do
     t.integer "trip_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "coordinates"
   end
 
   create_table "restaurants", force: :cascade do |t|
@@ -68,6 +70,13 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_06_013337) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "trip_users", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "trip_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "trips", force: :cascade do |t|
     t.string "name"
     t.date "start_date"
@@ -77,7 +86,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_06_013337) do
     t.float "est_remaining_budget"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
+    t.integer "trip_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -86,5 +95,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_08_06_013337) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "trip_user_id"
   end
 end

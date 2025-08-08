@@ -45,4 +45,11 @@ Rails.application.routes.draw do
   post "/transportations" => "transportations#create"
   patch "/transportations/:id" => "transportations#update"
   delete "/transportations/:id" => "transportations#destroy"
+
+  # Trip Users
+  get "/trip-users" => "trip_users#index"
+  get "/trip-users/:id" => "trip_users#show"
+  post "/trip-users" => "trip_users#create"
+  patch "/trip-users/:id" => "trip_users#update"
+  delete "/trip-users/:id" => "trip_users#destroy"
 end

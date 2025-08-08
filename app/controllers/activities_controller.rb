@@ -12,6 +12,9 @@ class ActivitiesController < ApplicationController
   end
 
   def create
+    puts "--------"
+    pp params
+    puts "--------"
     @activity = Activity.create!(
       name: params["name"],
       date: params["date"],

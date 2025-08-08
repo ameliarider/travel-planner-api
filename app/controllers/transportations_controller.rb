@@ -1,9 +1,9 @@
 class TransportationsController < ApplicationController
     def index
-    @transportations = Transportation.all
+      @transportations = Transportation.all
 
-    render json: @transportations
-  end
+      render json: @transportations
+    end
 
   def show
     @transportation = Transportation.find_by(id: params["id"])
