@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "/" => "sessions#create"
+
   # Authentication
   post "/users" => "users#create"
   post "/sessions" => "sessions#create"
