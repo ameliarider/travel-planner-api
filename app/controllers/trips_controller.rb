@@ -13,11 +13,11 @@ class TripsController < ApplicationController
   end
 
   def create
-  @trip = Trip.create(trip_params)
-  TripUser.create(user_id: params[:user_id], trip_id: @trip.id)
+    @trip = Trip.create(trip_params.except(:user_id))
+    TripUser.create(user_id: params[:user_id], trip_id: @trip.id)
 
-  render :show
-end
+    render :show
+  end
 
   def update
     @trip = Trip.find_by(id: params["id"])

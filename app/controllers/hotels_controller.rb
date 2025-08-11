@@ -12,7 +12,7 @@ class HotelsController < ApplicationController
   end
 
   def create
-    coords = fetch_coordinates(params[:name])
+    coords = fetch_coordinates(params[:address])
 
     @hotel = Hotel.create!(
       name: params["name"],
@@ -31,7 +31,7 @@ class HotelsController < ApplicationController
 
   def update
     @hotel = Hotel.find_by(id: params["id"])
-    coords = fetch_coordinates(params[:name] || @hotel.name)
+    coords = fetch_coordinates(params[:address] || @hotel.address)
 
     @hotel.update(
       name: params["name"] || @hotel.name,
@@ -57,9 +57,9 @@ class HotelsController < ApplicationController
   end
 
   private
-  def fetch_coordinates(name)
-    nil if name.blank?
-    results = Geocoder.search(name)
+  def fetch_coordinates(address)
+    nil if address.blank?
+    results = Geocoder.search(address)
     if results.present?
       [ results.first.latitude.to_f, results.first.longitude.to_f ]
     else
