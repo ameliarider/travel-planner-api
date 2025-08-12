@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get "/" => "sessions#create"
+  root to: proc { [ 200, {}, [ "OK" ] ] }
 
   # Authentication
   post "/users" => "users#create"
